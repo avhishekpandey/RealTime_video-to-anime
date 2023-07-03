@@ -22,5 +22,3 @@ fi
 # Launch the app.py file
 python app.py
 
-# Deactivate the environment
-deactivate

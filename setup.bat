@@ -22,5 +22,3 @@ if not exist requirements.txt (
 rem Install the requirements
 pip install -r requirements.txt
 
-rem Deactivate the environment
-call venv\Scripts\deactivate

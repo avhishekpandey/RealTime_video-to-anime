@@ -22,5 +22,3 @@ if not exist app.py (
 rem Launch the app.py file
 python app.py
 
-rem Deactivate the environment
-call venv\Scripts\deactivate
