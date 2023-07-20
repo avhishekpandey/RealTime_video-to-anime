@@ -1,9 +1,6 @@
 import streamlit as st
-import streamlit_webrtc as webrtc
-import cv2
-import numpy as np
-from Scripts.models import AnimeGAN
 from utils import get_modelpaths
+from Scripts.video_processor import webcam_input
 
 
 
@@ -13,21 +10,8 @@ def main():
     model_name = st.selectbox("Select model name", model_list)
     model_path = get_modelpaths(model_name)
 
-    webrtc_stream = webrtc.VideoStream()
+    webcam_input(model_path)
 
-    convert_to_anime = AnimeGAN(model_path)
-
-    while True:
-        frame = webrtc_stream.recv()
-
-        anime_frame = convert_to_anime(frame)
-
-        st.image(np.hstack((frame, anime_frame)), channels="BGR")
-
-        if st.button("Exit"):
-            break
-
-    webrtc_stream.close()
 
 
 if __name__ == "__main__":
