@@ -7,7 +7,7 @@ import streamlit as st
 class AnimeGAN:
     """ Object to image animation using AnimeGAN models
     https://github.com/TachibanaYoshino/AnimeGANv2
-    copeid and modified using AnimeGAN google colab
+    copied and modified using AnimeGAN google colab
     https://colab.research.google.com/drive/1qhBxA72Wxbh6Eyhd-V0zY_jTIblP9rHz#scrollTo=Mm7x7XgxUUwv
     onnx models:
     'https://docs.google.com/uc?export=download&id=1VPAPI84qaPUCHKHJLHiMK7BP_JE66xNe' AnimeGAN_Hayao.onnx
