@@ -13,9 +13,13 @@ def get_modelpaths(model_name: str):
 
     checkpoints_dir = os.path.join("Checkpoints", model_name)
     if not os.path.exists(checkpoints_dir):
-        return []
+        return None
 
     checkpoints = os.listdir(checkpoints_dir)
+
+    if len(checkpoints) == 0:
+        return None
+
     return [os.path.join(checkpoints_dir, checkpoint) for checkpoint in checkpoints]
 
 
