@@ -10,6 +10,13 @@ RTCConfiguration = RTCConfiguration(
 )
 
 def webcam_input(model_path):
+    """ Take video from webcam and streams converted video
+        Args:
+            model_path : path of the animeGAN model"
+
+        Returns:
+            av.VideoFarme
+        """
     st.header("Webcam Live Feed")
     WIDTH = st.sidebar.select_slider('QUALITY (May reduce the speed)', list(range(150, 501, 50)))
     width = WIDTH
