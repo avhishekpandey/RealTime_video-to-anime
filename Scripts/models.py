@@ -1,4 +1,3 @@
-import os
 import cv2
 import typing
 import numpy as np
