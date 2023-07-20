@@ -16,10 +16,10 @@ def get_modelpaths(model_name: str):
         return None
 
     checkpoints = os.listdir(checkpoints_dir)
-
-    if len(checkpoints) == 0:
-        return None
-
-    return [os.path.join(checkpoints_dir, checkpoint) for checkpoint in checkpoints]
+    model_paths = []
+    for checkpoint in checkpoints:
+        if checkpoint.endswith(".onnx"):
+            model_paths.append(os.path.join(checkpoints_dir, checkpoint))
+    return model_paths
 
 
