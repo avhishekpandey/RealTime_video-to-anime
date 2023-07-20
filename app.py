@@ -7,6 +7,7 @@ from utils import get_modelpaths
 model_path = get_modelpaths()
 
 def main():
+    model_list = ["AnimeGANv2_Hayao","AnimeGANv2_Shinka","AnimeGANv2_Paprika"]
     st.title("Real-time Anime to Anime Converter")
     video_capture = cv2.VideoCapture(0)
 
