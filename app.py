@@ -1,4 +1,5 @@
 import streamlit as st
+import streamlit_webrtc as webrtc
 import cv2
 import numpy as np
 from Scripts.models import AnimeGAN
@@ -11,21 +12,13 @@ def main():
     st.title("Real-time Anime to Anime Converter")
     model_name = st.selectbox("Select model name", model_list)
     model_path = get_modelpaths(model_name)
-    video_capture = cv2.VideoCapture(0)
 
-    if not video_capture.isOpened():
-        st.error("Error: Unable to access the webcam.")
-        return
+    webrtc_stream = webrtc.VideoStream()
 
     convert_to_anime = AnimeGAN(model_path)
 
     while True:
-        ret, frame = video_capture.read()
-
-        if not ret:
-            st.warning("Warning: Unable to capture frame from the webcam.")
-            continue
-
+        frame = webrtc_stream.recv()
 
         anime_frame = convert_to_anime(frame)
 
@@ -34,7 +27,7 @@ def main():
         if st.button("Exit"):
             break
 
-    video_capture.release()
+    webrtc_stream.close()
 
 
 if __name__ == "__main__":
