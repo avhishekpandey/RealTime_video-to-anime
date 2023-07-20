@@ -4,11 +4,13 @@ import numpy as np
 from Scripts.models import AnimeGAN
 from utils import get_modelpaths
 
-model_path = get_modelpaths()
+
 
 def main():
     model_list = ["AnimeGANv2_Hayao","AnimeGANv2_Shinka","AnimeGANv2_Paprika"]
     st.title("Real-time Anime to Anime Converter")
+    model_name = st.selectbox("Select model name", model_list)
+    model_path = get_modelpaths(model_name)
     video_capture = cv2.VideoCapture(0)
 
     if not video_capture.isOpened():
