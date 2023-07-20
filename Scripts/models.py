@@ -66,7 +66,7 @@ class AnimeGAN:
         frame = cv2.resize(frame, (wh[0], wh[1]))
         return frame
 
-    @st.experimental_memo(show_spinner=False)
+    @ st.cache_data
     def __call__(self, frame: np.ndarray) -> np.ndarray:
         """Main function to process selfie semgentation on each call
 
